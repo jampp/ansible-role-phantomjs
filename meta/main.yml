@@ -5,12 +5,9 @@ galaxy_info:
   license: Apache
   min_ansible_version: 1.8
   platforms:
-  - name: Centos
+  - name: EL
     versions:
     - 6
-  - name: Amazon Linux
-    versions:
-    - 2015.03
   categories:
   - web
   - development
