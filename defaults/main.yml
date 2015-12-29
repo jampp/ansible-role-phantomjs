@@ -1,0 +1,22 @@
+---
+
+phantomjs_repo:        https://github.com/ariya/phantomjs
+phantomjs_source_dest: /usr/local/src/phantomjs
+phantomjs_version:     2.0.0
+
+# Build PhantomJS from source
+#  Currently, this is the only option
+phantomjs_build: true
+
+# Number of concurrent processes to build PhantomJS
+phantomjs_build_jobs: 4
+
+# Force build
+#  If the build needs to be forced (changing version)
+#  change this to true (as an extra var)
+phantomjs_force_build: false
+
+# PhantomJS binary destination
+phantomjs_bin: /usr/local/bin/phantomjs
+
+# vi:ts=2:sw=2:et:ft=yaml

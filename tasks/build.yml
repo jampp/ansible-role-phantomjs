@@ -1,0 +1,43 @@
+---
+
+- include: build/Debian.yml
+  when: ansible_os_family == 'Debian'
+  
+- include: build/RedHat.yml
+  when: ansible_os_family == 'RedHat'
+ 
+
+- name: Clone PhantomJS code
+  git:
+    repo="{{phantomjs_repo}}"
+    dest="{{phantomjs_source_dest}}"
+    version="{{phantomjs_version}}"
+  register: pjs_code_change
+
+
+- name: Check PhantomJS
+  command: >
+    {{phantomjs_bin}} --version
+  ignore_errors: True
+  no_log: true
+  register: pjs_installed
+
+
+- name: Build PhantomJS
+  command: >
+    ./build.sh --confirm --jobs {{phantomjs_build_jobs}}
+  args:
+    chdir: "{{phantomjs_source_dest}}"
+  when: (pjs_installed | failed) or (pjs_code_change | changed) or (phantomjs_force_build)
+
+
+- name: Copy PhantomJS binary
+  command: >
+    cp bin/phantomjs {{phantomjs_bin}}
+  args:
+    chdir: "{{phantomjs_source_dest}}"
+  sudo: true
+  when: (pjs_installed | failed)
+
+
+# vi:ts=2:sw=2:et:ft=yaml
