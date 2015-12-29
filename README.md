@@ -10,8 +10,7 @@ Ansible role to build [PhantomJS](http://phantomjs.org/) from source.
 
   * Ubuntu trusty
   * Centos 6
-  * Amazon Linux 2015.09
-  * Amazon Linux 2015.03
+  * Amazon Linux
 
 ## Defaults
 
