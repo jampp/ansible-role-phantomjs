@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/torian/ansible-role-phantomjs.svg)](https://travis-ci.org/torian/ansible-role-phantomjs)
 
-Ansible role to build [PhantomJS](http://www.phantomjs.com/).
+Ansible role to build [PhantomJS](http://phantomjs.org/).
 
 ## Defaults
 
