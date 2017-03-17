@@ -2,10 +2,10 @@
 
 - include: build/Debian.yml
   when: ansible_os_family == 'Debian'
-  
+
 - include: build/RedHat.yml
   when: ansible_os_family == 'RedHat'
- 
+
 
 - name: Clone PhantomJS code
   git:
@@ -36,7 +36,7 @@
     cp bin/phantomjs {{phantomjs_bin}}
   args:
     chdir: "{{phantomjs_source_dest}}"
-  sudo: true
+  become: true
   when: (pjs_installed | failed)
 
 
