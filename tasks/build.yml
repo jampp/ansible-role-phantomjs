@@ -21,6 +21,7 @@
   ignore_errors: True
   no_log: true
   register: pjs_installed
+  tags: skip_ansible_lint
 
 
 - name: Build PhantomJS
