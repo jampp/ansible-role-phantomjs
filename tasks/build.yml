@@ -29,7 +29,7 @@
     ./build.sh --confirm --jobs {{phantomjs_build_jobs}}
   args:
     chdir: "{{phantomjs_source_dest}}"
-  when: (pjs_installed | failed) or (pjs_code_change | changed) or (phantomjs_force_build)
+  when: (pjs_installed is failed) or (pjs_code_change is changed) or (phantomjs_force_build)
 
 
 - name: Copy PhantomJS binary
@@ -38,7 +38,7 @@
   args:
     chdir: "{{phantomjs_source_dest}}"
   become: true
-  when: (pjs_installed | failed)
+  when: (pjs_installed is failed)
 
 
 # vi:ts=2:sw=2:et:ft=yaml
